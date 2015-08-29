@@ -2,23 +2,24 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
-  var links = [];
   var addLink = function(link) {
     return $http({
       method: 'POST',
       url: '/api/links',
       data: link
-    })
-    .then(function (resp) {
-      return resp.data.token;
     });
-    links.push(link);
   };
   var getLinks = function() {
-
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    })
+    .then(function (resp) {
+      return resp.data;
+    });
   };
   return {
-    links: links,
+    getLinks: getLinks,
     addLink: addLink
   };
 })
@@ -57,6 +58,7 @@ angular.module('shortly.services', [])
   };
 
   var signout = function () {
+    console.log('signout')
     $window.localStorage.removeItem('com.shortly');
     $location.path('/signin');
   };

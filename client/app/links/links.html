@@ -1,14 +1,18 @@
-<div id='container' ng-controller="LinksController">
+<input type='text' ng-model='search' placeholder='filter' />
+<div id='container'>
   <!-- Your html here -->
-  <section class='links'>
-    <ul>
-<!--       <div class='info' ng-repeat="link in links">
+  <div class='link fx-fade-up fx-speed-400 fx-easing-strong'
+  ng-repeat="link in data.links | filter:search | orderBy:'created_at'">
+    <img src="assets/redirect_icon.png">
+
+      <div class='info'>
         <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
         <div class='title'>{{link.title}}</div>
         <div class='original'>{{link.url}}</div>
-        <a href='{{base_url}}/{{code}}'>{{base_url}}/{{code}}</a>
-      </div> -->
-      <div ng-repeat="link in links">{{link}}</div>
-    </ul>
-  </section>
+
+
+       <a href="http://localhost:8000/api/links/{{link.code}}">
+       {{link.base_url}}/{{link.code}}</a>
+    </div>
+  </div>
 </div>
