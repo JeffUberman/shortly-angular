@@ -1,6 +1,9 @@
-<div id='container'>
-<!-- Your code here -->
-
+<div id='container' ng-controller="ShortenController">
+  <section class="create">
+    <input type="url" ng-model="newLink">
+    <button ng-click="addLink(newLink)">Add Link</button>
+    <div>{{links[links.length-1]}}</div>
+  </section>
 </div>
 
 

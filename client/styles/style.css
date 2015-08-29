@@ -146,3 +146,16 @@ input[type=url]:focus {
   clear: both;
 }
 
+.navigation .logout {
+  float: right;
+}
+
+.navigation li a , .logout {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+
